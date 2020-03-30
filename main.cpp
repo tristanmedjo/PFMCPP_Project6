@@ -86,6 +86,8 @@ struct MyStruct                                //4
             if( a->value > b->value ) return b;
             return nullptr;
         }
+
+        return nullptr;
     }
 };
 
@@ -99,7 +101,7 @@ struct U
             std::cout << "U's floatOne value: " << this->floatOne << std::endl;
             this->floatOne = *newValue;
             std::cout << "U's floatOne updated value: " << this->floatOne << std::endl;
-            while( std::abs(this->floatTwo - this->floatOne > 0.001f ))
+            while( std::abs(this->floatTwo - this->floatOne) > 0.001f )
             {
                 /*
                  write something that makes the distance between that->floatTwo and that->floatOne get smaller
@@ -108,7 +110,9 @@ struct U
             }
             std::cout << "U's floatTwo updated value: " << this->floatTwo << std::endl;
             return this->floatTwo * this->floatOne;
-        }    
+        }
+
+        return 0;    
     }
 };
 
@@ -121,7 +125,7 @@ struct MyStructTwo
             std::cout << "U's floatOne value: " << that->floatOne << std::endl;
             that->floatOne = *newValue;
             std::cout << "U's floatOne updated value: " << that->floatOne << std::endl;
-            while( std::abs(that->floatTwo - that->floatOne > 0.001f ))
+            while( std::abs(that->floatTwo - that->floatOne) > 0.001f )
             {
                 /*
                  write something that makes the distance between that->floatTwo and that->floatOne get smaller
@@ -131,6 +135,8 @@ struct MyStructTwo
             std::cout << "U's floatTwo updated value: " << that->floatTwo << std::endl;
             return that->floatTwo * that->floatOne;
         }
+
+        return 0;
     }
 };
         
