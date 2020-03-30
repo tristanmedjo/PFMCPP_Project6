@@ -69,13 +69,13 @@ struct T
     {
         value = v;
         name = charPointer;
-    };  //1
+    }  //1
     //2
     //3
 };
 
 
-struct myStruct                                //4
+struct MyStruct                                //4
 {
 
     T* compare(T* a, T* b) //5
@@ -112,14 +112,14 @@ struct U
     }
 };
 
-struct myStruct2
+struct MyStructTwo
 {
-    static float updateStaticValue(U* that, float newValue )        //10
+    static float updateStaticValue(U* that, float* newValue )        //10
     {
         if(that != nullptr)
         {
             std::cout << "U's floatOne value: " << that->floatOne << std::endl;
-            that->floatOne = newValue;
+            that->floatOne = *newValue;
             std::cout << "U's floatOne updated value: " << that->floatOne << std::endl;
             while( std::abs(that->floatTwo - that->floatOne > 0.001f ))
             {
@@ -139,13 +139,13 @@ int main()
     T instanceOne(10, "charOne");                                             //6
     T instanceTwo(5, "charTwo");                                             //6
     
-    myStruct f;                                            //7
+    MyStruct f;                                            //7
     auto* smaller = f.compare(&instanceOne, &instanceTwo);                              //8
     std::cout << "the smaller one is << " << smaller->name << std::endl; //9
     
     U newUVariableOne;
     float updatedValue = 5.f;
-    std::cout << "[static func] newUVariableOne's multiplied values: " << myStruct2::updateStaticValue(&newUVariableOne, 100.5f ) << std::endl;                  //11
+    std::cout << "[static func] newUVariableOne's multiplied values: " << MyStructTwo::updateStaticValue(&newUVariableOne, &updatedValue) << std::endl;                  //11
     
     U newUVariableTwo;
     std::cout << "[member func] newUVariableTwo's multiplied values: " << newUVariableTwo.updateValue(&updatedValue) << std::endl;
