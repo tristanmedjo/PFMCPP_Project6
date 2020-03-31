@@ -120,7 +120,7 @@ struct MyStructTwo
 {
     static float updateStaticValue(U* that, float* newValue )        //10
     {
-        if(that != nullptr)
+        if(that != nullptr && newValue != nullptr)
         {
             std::cout << "U's floatOne value: " << that->floatOne << std::endl;
             that->floatOne = *newValue;
